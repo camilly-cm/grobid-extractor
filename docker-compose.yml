@@ -1,0 +1,25 @@
+# GROBID server (Java + ML models) exposed as a REST API.
+# The Python client in this repository talks to it over HTTP (see GROBID_URL in .env).
+#
+#   docker compose up -d      # start in background
+#   docker compose logs -f    # follow logs
+#   docker compose down       # stop and remove the container
+
+services:
+  grobid:
+    # Official image, lightweight CRF models (CPU friendly).
+    # Version is pinned so results are reproducible; bump it deliberately.
+    image: grobid/grobid:0.9.1-crf
+    container_name: grobid
+    ports:
+      - "${GROBID_PORT:-8070}:8070"
+    # Reap the pdfalto child processes GROBID spawns for each PDF.
+    init: true
+    mem_limit: ${GROBID_MEM_LIMIT:-4g}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-fs", "http://localhost:8070/api/isalive"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 60s

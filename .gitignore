@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv*/
+
+# Local configuration
+.env
+
+# Data: input PDFs and generated results stay local (copyright + repo size)
+PDFS/
+output/
+resultsmark/
+*.pdf
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+#tests
