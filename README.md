@@ -1,6 +1,6 @@
 # grobid-extractor
 
-O grobid-extractor é uma ferramenta em Python para extrair, em lote, o conteúdo de artigos científicos em PDF. Ele usa o GROBID, uma ferramenta de aprendizado de máquina que identifica a estrutura de um artigo (título, autores, afiliações, resumo, seções do texto, figuras, tabelas e referências bibliográficas). 
+Ferramenta em Python para extrair, em lote, o conteúdo de artigos científicos em PDF. Ele usa o GROBID, uma ferramenta de aprendizado de máquina que identifica a estrutura de um artigo (título, autores, afiliações, resumo, seções do texto, figuras, tabelas e referências bibliográficas). 
 
 O GROBID roda como servidor no Docker. Este repositório é responsável pelo envio dos PDFs a ele. O modelo oferece cinco serviços (endpoints), e você escolhe qual usar com a opção --endpoint. 
 
